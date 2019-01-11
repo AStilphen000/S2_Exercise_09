@@ -19,6 +19,7 @@
    <title>Red Ball Survey</title>
    <link href="rb_reset.css" rel="stylesheet" /> 
    <link href="rb_styles.css" rel="stylesheet" />
+   <link rel="stylesheet" href="rb_forms.css" />
    <script src="rb_formsubmit.js"></script>
 
 </head>
@@ -27,7 +28,7 @@
    <header>
       <img src="rb_logo.png" alt="Red Ball Pizza" id="logoimg" />
       <nav> <a id="navicon" href="#"><img src="rb_navicon.png" alt="" /></a>
-         <ul>
+         <ul> 
             <li><a href="#">home</a></li>
             <li><a href="#">menu</a></li>
             <li><a href="#">directions</a></li>
@@ -52,12 +53,15 @@
          Pizza will not share your contact information with third 
          parties, <em>ever</em>. </p>
       <p>Required values are marked by an asterisk (*)</p>
-      <form action="survey" action="http://www.exmaple.com/redball/survey" method="POST">
-    <fieldset id="custInfo">
+
+      <!-- Survey1 -->
+      <form id="survey" action="http://www.exmaple.com/redball/survey" method="POST">
+        <fieldset id="custInfo">
         <legend>Customer Information</legend>
+
        <div class="formRow">
             <label for="name">Name*</label>  
-        <input name="custName" id="name" type="text" placeholder="first and last name">
+            <input name="custName" id="name" type="text" placeholder="first and last name">
        </div>
 
         <div class="formRow">
@@ -83,26 +87,44 @@
 
         <div class="formRow">
                 <label for="phone">Phone Number</label>
-                <input name="custPhone" id="phone" type="tel" placeholder="(nnn) nnn-nnnn ">
+                <input name="custPhone" id="phone" type="tel" placeholder="(nnn) nnn-nnnn "> 
         </div>
 
         <div class="formRow">
-                <label for="mail">E-mail</label> 
+                <label for="mail">E-mail*</label> 
                 <input name="custEmail" id="mail" type="email">
         </div>
 
         <div class="formRow">
-                <label for="dineSpin">How many times do you dine out per month?</label>
-                <input name="dineOut" id="dineSpin" type="number" value="1" step="1" min="0" max="20">
+                <label for="info">Where did you hear about us? <br />(select all that apply)</label> 
+                <select name="infoSrc" id="info" size="5">
+                    <option value="internet">Internet</option>
+                    <option value="mag">Magazine</option>
+                    <option value="news">Newspaper</option>
+                    <option value="word">Word of Mouth</option>
+                    <option value="other">Other</option> 
+                </select>
             </div>
 
-    </fieldset>
+
+            <div class="formRow">
+                <label for="dineSpin">How many times do you dine per month?</label>
+                <input type="number" name="dineOut" id="dineSpin" value="1" step="1" min="0" max="20" />
+            </div> 
+
+            <input name="mailMe" type="checkbox" id="mailCB" value="yes" /> 
+            <label for="mailCB">Add me to your mailing list for great coupons and specials!</label>
+    </fieldset> 
+
+    <!-- Survey2 --> 
     <fieldset id="expInfo">
         <legend>Share Your Experiecne at Red Ball Pizza</legend>
+
        <div>
             <label for="visit">Date of Visit</label>
             <input name="visitDate" id="visit" type="date">  
        </div>
+
        <div class="formRow">
             <label for="order">Order type</label>
             <select name="orderType" id="order">
@@ -120,6 +142,7 @@
                 <input name="sFriend" id="fNo" value="no" type="radio"> 
             </fieldset> 
         </div> 
+
         <div class="formRow">
                 <label for="">Was your order correct?</label> 
                 <fieldset class="optGroup">
@@ -129,21 +152,24 @@
                     <input name="oNo" id="cNo" value="no" type="radio">
                 </fieldset> 
             </div>
+
             <div class="formRow">
                     <label for="">Was your food hot?</label>
-                    <fieldset>
+                    <fieldset class="optGroup"> 
                         <label for="hYes">Yes</label>
                         <input name="foodHot" id="hYes" value="yes" type="radio">
                         <label for="hNo">No</label>
                         <input name="foodHot" id="hNo" value="no" type="radio">
                     </fieldset> 
                 </div> 
+
                     <div class="formRow">
                             <label for="rangeBox">Rate the overall service<br /> (0=poor; 10=great) </label>
                             0
                             <input name="servicerate" id="rangeBox" type="range" value="5" step="1" min="0" max="10" >
                             10
                         </div>
+
                         <div class="formRow">
                                 <label for="dish">What's your favorite dish?</label>
                                 <input name="favDish" id="dish" type="text" list="dishType">
@@ -154,13 +180,16 @@
                                     <option value="Mediterranean Herb Pizza"></option>
                                     <option value="Pasta Rolls"></option>
                                     <option value="Pasta Artichoke Pizza"></option> 
-                                </datalist>
-                    
+                                </datalist> 
                             </div>
+
+                        
+                            <label for="comBox">Tell us more about your experiecne</label>
+                            <textarea name="custExp" id="comBox"></textarea>
                     </fieldset>
-    </form>
-     
-   </section>
+                </form>
+         
+     </section>
    <footer>
       <h1>ORDER</h1>
       <a href="#">Specials</a> <a href="#">Pizza</a> <a href="#">Pasta</a> <a href="#">Wings</a> <a href="#">Sides</a> <a href="#">Salads</a> <a href="#">Drinks</a> <a href="#">Desserts</a>
